@@ -7,13 +7,15 @@ module.exports = (query, request) => {
         action: 'play',
         json: {
           download: 0,
-          end: 'playend',
+          end: 'ui',
           id: query.id,
-          sourceId: query.sourceid,
+          sourceId:
+            query.sourceid == 'dailySongRecommend' ? '' : query.sourceid,
           time: query.time,
           type: 'song',
           wifi: 0,
-          source: 'list',
+          source:
+            query.sourceid == 'dailySongRecommend' ? query.sourceid : 'list',
         },
       },
     ]),
